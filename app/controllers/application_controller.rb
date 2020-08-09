@@ -21,8 +21,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    active_user = User.find_by(session[:user_id])
-    if active_user
+    @active_user = User.find_by(session[:user_id])
+    if @active_user
       erb :account
     else
       erb :error
